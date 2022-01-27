@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
+    />
+    <style>
+      label,
+      input {
+        display: block;
+      }
+      input.text {
+        margin-bottom: 12px;
+        width: 95%;
+        padding: 0.4em;
+      }
+      fieldset {
+        padding: 0;
+        border: 0;
+        margin-top: 25px;
+      }
+      div#users-contain {
+        width: 700px;
+        padding-left: 30%;
+      }
+      div#users-contain table {
+        margin: 1em 0;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      div#users-contain table td,
+      div#users-contain table th {
+        background-color: beige;
+        border: 2px solid rgb(90, 11, 11);
+        padding: 0.6em 10px;
+        text-align: left;
+      }
+      .ui-dialog .ui-state-error {
+        padding: 0.3em;
+      }
+      .validateTips {
+        border: 1px solid transparent;
+        padding: 0.3em;
+      }
+    </style>
+    <style>
+      #feedback {
+        font-size: 1.4em;
+      }
+
+      #selectable {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 450px;
+      }
+      #selectable li {
+        margin: 3px;
+        float: left;
+        width: 100px;
+        height: 80px;
+        font-size: 4em;
+        text-align: center;
+      }
+    </style>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <title>ProgrammerPuzzle:The game</title>
+  </head>
+
+  <body>
+    <h1 id="Titulo">ProgrammerPuzzle: The game</h1>
+
+    <!-------------------------- SECCION DEL REGISTRO DE USAURIO -------------------------------------------------------->
+    <section>
+      <ul id="Seccion_1">
+        <div id="dialog-form" title="Crear nuevo jugador">
+          <p class="validateTips">*Todos los campos son obligatorios.</p>
+
+          <form>
+            <fieldset>
+              <label for="nombre">Nombre del jugador</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                value=""
+                class="text ui-widget-content ui-corner-all"
+              />
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value=""
+                class="text ui-widget-content ui-corner-all"
+              />
+              <label for="conocimientos"
+                >¿Posee conocimientos de programación?</label
+              >
+              <select
+                name="conoce"
+                id="conoce"
+                class="text ui-widget-content ui-corner-all"
+              >
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+              </select>
+              <input
+                type="submit"
+                tabindex="-1"
+                style="position: absolute; top: -1000px"
+              />
+            </fieldset>
+          </form>
+        </div>
+
+        <div id="users-contain" class="ui-widget">
+          <table id="users" class="ui-widget ui-widget-content">
+            <thead>
+              <tr class="ui-widget-header">
+                <th>Nombre del jugador</th>
+                <th>Email</th>
+                <th>¿Posee conocimientos de programación?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-------------------------- CUENTA REGRESIVA  -------------------------------------------------------->
+        <h3 id="tiempo">Tiempo restante</h3>
+        <span id="cuentaregresiva"></span>
+      </ul>
+    </section>
+
+    <!-------------------------- SECCION PRINCIPAL CON CONTENIDO DEL JUEGO  -------------------------------------------------------->
+
+    <section
+      style="background: url(image/fondoocifina.jpg)"
+      ;
+      id="Seccion_2"
+      style="height: 100px"
+    >
+      <h2 id="pedido" onclick="pedidojefe()">
+        -----> Haga click aquí para ver el objetivo de hoy <------
+      </h2>
+
+      <ul id="main">
+        <img src="image/jefe.jpg" width="300px" />
+        <ul>
+          <button id="comenzar">Comenzar</button>
+          <button id="comenzar2">Comenzar juego nuevo</button>
+        </ul>
+
+        <ol id="selectable" class="seleccionador">
+          <li class="ui-state-default" id="ui-state-default1">
+            <button
+              id="uno"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default1">
+            <button
+              id="dos"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default1">
+            <button
+              id="tres"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default1">
+            <button
+              id="cuatro"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default2">
+            <button
+              id="cinco"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default2">
+            <button
+              id="seis"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default2">
+            <button
+              id="siete"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default3">
+            <button
+              id="ocho"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default3">
+            <button
+              id="nueve"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default3">
+            <button
+              id="diez"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default4">
+            <button
+              id="once"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default4">
+            <button
+              id="doce"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default5">
+            <button
+              id="trece"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default5">
+            <button
+              id="catorce"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default6">
+            <button
+              id="quince"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+          <li class="ui-state-default" id="ui-state-default6">
+            <button
+              id="dieciseis"
+              style="background: url(image/default.png)"
+            ></button>
+          </li>
+        </ol>
+      </ul>
+    </section>
+
+    <!-------------------------- SECCION DE AYUDA -------------------------------------------------------->
+
+    <section>
+      <ul id="Seccion_3">
+        <h2>-> Haz click aquí para ver la solución <-</h2>
+      </ul>
+    </section>
+
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>

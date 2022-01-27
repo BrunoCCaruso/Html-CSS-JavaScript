@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(251, 111, 169);
+    font-family: Calibri;
+    padding: 10px 20px;
+}
+
+h1 {
+	color: #FFFFFF;
+	background-color: #ffbd33;
+	padding: 10px;
+	border-radius:0 20px;
+}
+
+h2 {
+	color: #ffffff;
+	background-color: #0c4433;
+	padding: 10px;
+	border-radius:0 20px;
+}
+
+#Ensalada {
+	padding-left: 750px;
+}

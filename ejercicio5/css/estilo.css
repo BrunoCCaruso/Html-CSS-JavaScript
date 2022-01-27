@@ -1,0 +1,39 @@
+body{
+    background-color: black;
+    font-family: Calibri;
+    padding: 10px 20px;
+	
+}
+
+h1 {
+	color: #FFFFFF;
+	background-color: #ffbd33;
+	padding: 10px;
+	border-radius:0 20px;
+}
+
+
+#boton{
+	color: white;
+	background-color: rgb(109, 109, 109);
+	padding: 10px;
+	font-style: italic;
+	text-align: center;
+	border-radius: 0;
+	border-style: groove;
+}
+
+#boton2{
+	padding: 10px;
+	text-align: center;
+}
+
+h2 {
+	color: white;
+	background-color: blue;
+	padding: 10px;
+	font-style: italic;
+	text-align: center;
+	border-radius: 50px 0;
+	border-style: groove;
+}

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evaluación 8</title>    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <style>
+        label, input { display:block; }
+        input.text { margin-bottom:12px; width:95%; padding: .4em; }
+        fieldset { padding:0; border:0; margin-top:25px; }
+        h1 { font-size: 1.2em; margin: .6em 0; }
+        div#users-contain { width: 350px; margin: 20px 0; }
+        div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+        div#users-contain table td, div#users-contain table th { border: 1px solid rgb(236, 127, 255); padding: .6em 10px; text-align: left; }
+        .ui-dialog .ui-state-error { padding: .3em; }
+        .validateTips { border: 1px solid transparent; padding: 0.3em; }
+      </style>
+    <script src="js/main.js"></script>
+        
+</head>
+
+
+<body style="background: url(img/fondo3.jpg);">
+    
+    <!------------------------------- CUADRO DE DIÁLOGO INICIAL --------------------------------------------------------------------------------->
+    
+    <script>
+        $( function() {
+          $( "#dialog" ).dialog({
+            height: 500,
+            width: 1000,
+          });
+        });
+    </script>
+    
+    <div id="dialog" title="Hola profe!">
+        
+        <h1 id="Titulo">INFORMACIÓN SOBRE EVALUACIÓN UNIDAD VIII</h1>
+        <h2>Esta "página web interactiva" la creé desde cero con el fin de implementar JQuery y todo lo aprendido en el desarrollo del curso.</h2><br>
+            <h3><p>Implementaciones de JQuery:</p></h3><br>
+            <p>- Utilicé un Widget de tipo Dialog para mostrar éste mensaje.</p>
+            <p>- Utilicé un Widget de tipo Dialog (formulario) para el Registro del usuario (opcional)</p>
+            <p>- Utilicé un Widget de tipo Menu para la selección de colecciones de vestimenta (Otoño, invierno, Primavera, Verano)</p>
+            <p>- Utilicé JQuery Y CSS para dar diseño a la página.</p>
+    </div>
+
+    
+    <!----------------------------------------  REGISTRO DE USUARIO --------------------------------------------------------------->
+
+
+
+    <div id="dialog-form" title="Crear nuevo usuario">
+        <p class="validateTips">Todos los campos deben ser completados.</p>
+       
+        <form>
+          <fieldset>
+            <label for="name">Nombre de usuario</label>
+            <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
+            <label for="password">Constraseña</label>
+            <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          </fieldset>
+        </form>
+    </div>
+
+       
+      <div id="users-contain" class="ui-widget">
+        <h1 id="registrados">Usuarios registrados:</h1>
+        <table id="users" class="ui-widget ui-widget-content">
+          <thead>
+            <tr class="ui-widget-header ">
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Contraseña</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bruno César Caruso</td>
+              <td>brunoccaruso.s@gmail.com</td>
+              <td>Contraseña123</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+<!------------------------------- ENCABEZADO DE LA PÁGINA  --------------------------------------------------------------------------------->
+
+ 	
+    <div id="main-container">
+        <header>
+            <h1 id="Evaluacion">Evaluación Unidad VIII</h1>
+            <div id="menu">
+                <!------------------------------- ANUNCIOS --------------------------------------------------->
+                <ul>
+                    <li id="Descuentos"><div>15% OFF</div></li>
+                    <li id="logo"><a href="#"><img src="img/toriii.png" width="200" alt=""></a></li>
+                    <li id="Tematica"><div>¡Felices Fiestas!</div></li>
+                                
+                </ul>
+                <!------------------------------- INTERACCIÓN C/ DATOS USUARIO ----------------------------------->
+                <ul>
+                    <div id="Sesion">
+                        <li><a id="Inicio" href="#">Inicio</a></li>
+                        <li><a id="Iniciar Sesión" href="#users-contain">Iniciar sesión</a></li>
+                        <li><a id="Registrarse" href="#users-contain">Registrarse</a></li>
+                    </div>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                                      
+                </ul>
+                
+                <!------------------------------- MENU DE COLECCIONES  ---------------------------------------------------------->
+               
+                <ul id="menu2">
+                    <li class="ui-state-disabled"><div>Colecciones</div></li>
+                    <li><div>Otoño</div>
+                      <ul>                        
+                        <li><div><a href="#RemerasOT"><button>Remeras</button></a></div></li>
+                        <li><div><a href="#PantalonesOT"><button>Pantalones</button></a></div></li>
+                        <li><div><a href="#ZapatosOT"><button>Zapatos</button></a></div></li>
+                        <li><div><a href="#AccesoriosOT"><button>Accesorios</button></a></div></li>
+                      </ul>
+                    </li>
+                    <li><div>Invierno</div>
+                      <ul>                        
+                        <li><div><a href="#RemerasInv"><button>Remeras</button></a></div></li>
+                        <li><div><a href="#PantalonesInv"><button>Pantalones</button></a></div></li>
+                        <li><div><a href="#ZapatosInv"><button>Zapatos</button></a></div></li>
+                        <li><div><a href="#AccesoriosInv"><button>Accesorios</button></a></div></li>
+                      </ul>
+                    </li>
+                    <li><div>Primavera</div>
+                      <ul>                        
+                        <li><div><a href="#RemerasPrim"><button>Remeras</button></a></div></li>
+                        <li><div><a href="#PantalonesPrim"><button>Pantalones</button></a></div></li>
+                        <li><div><a href="#ZapatosPrim"><button>Zapatos</button></a></div></li>
+                        <li><div><a href="#AccesoriosPrim"><button>Accesorios</button></a></div></li>
+                      </ul>
+                    </li>
+                    <li><div>Verano</div>
+                      <ul>                        
+                        <li><div><a href="#RemerasVer"><button>Remeras</button></a></div></li>
+                        <li><div><a href="#PantalonesVer"><button>Pantalones</button></a></div></li>
+                        <li><div><a href="#ZapatosVer"><button>Zapatos</button></a></div></li>
+                        <li><div><a href="#AccesoriosVer"><button>Accesorios</button></a></div></li>
+                      </ul>
+                    </li>
+                    <li><div>Outfits</div>
+                      <ul>
+                        <li><div>Clásico</div>
+                          <ul>
+                            <li><div><a href="#OutfitClasicoFormal"><button>Formal</button></a></div></li>
+                            <li><div><a href="#OutfitClasicoInformal"><button>Informal</button></a></div></li>
+                          </ul>
+                        </li>
+                        <li><div>Aesthetic</div>
+                          <ul>
+                            <li><div><a href="#OutfitTendencias"><button>Tendencias</button></a></div></li>                           
+                          </ul>                       
+                      </ul>
+                    </li>
+                    <li class="ui-state-disabled"><div>Armá tu Outfit (Próximamente)</div>
+                    </li>
+                  </ul>
+
+            </div>
+
+            <!------------------------------- SECCION OFERTAS  --------------------------------------------------------------------------------->
+
+                <main>
+                    <div class="text">
+                        <h1>Súper OFERTAS!</h1>
+                        <p>
+                            Los mejores precios de TEMPORADA
+                        </p>
+                        <p>
+                            <button>Ver ofertas</button>
+                        </p>
+                    </div>
+    
+                    <div class="image">
+                        <ul>
+                            <li><img id="Facebook" src="img/jeandefrente.jpeg" width="200" /></li>
+                            <li><img id="Instagram" src="img/remerablanca.jpeg" width="200" /></li>
+                            <li><img id="Wpp" src="img/zapablanca2.jpeg" width="200" /></li>
+                        </ul>                       
+                    </div>
+                </main>
+            </header>
+
+            <!------------------------------- CONTENIDO DE COLECCIÓN OTOÑO----------------------------------------------------->
+            
+            <div><img id="Hoja_Otoño" src="img/Hoja_otoño.png" alt="" width="200"></div>            
+          
+            <div id="Productos">
+                <h3><p id="NombOtoño">Otoño</p></h3>
+                <div id="ElemOtoño">
+                    
+                    <div id="RemerasOT"><h4 class="PrendasOtoño">Remeras</h4>
+                        <ul>
+                            <li><img id="otoPrimera" src="img/remerablanca.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoSegunda" src="img/toprmera.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoTercera" src="img/top.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+                       
+                    
+                        
+                    
+                    <div id="PantalonesOT"><h4 class="PrendasOtoño">Pantalones</h4>
+                        <ul>
+                            <li><img id="otoPrimera" src="img/polleranegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoSegunda" src="img/pollerasola.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoTercera" src="img/jeannegro.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="ZapatosOT"><h4 class="PrendasOtoño">Zapatos</h4>
+                        <ul>
+                            <li><img id="otoPrimera" src="img/zapablanca.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoSegunda" src="img/zapablanca2.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoTercera" src="img/zapanegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div id="AccesoriosOT"><h4 class="PrendasOtoño">Accesorios</h4>
+                        <ul>
+                            <li><img id="otoPrimera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoSegunda" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="otoTercera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+                
+                </div>
+
+                <!------------------------------- CONTENIDO DE COLECCIÓN INVIERNO ----------------------------------------------------->
+
+                <div><img id="Copo_nieve" src="img/copo_nieve.png" alt="" width="200"></div>
+                
+                <h3><p id="NombInv">Invierno</p></h3>
+                <div id="ElemInvierno">
+                    <div id="RemerasInv"><h4 class="PrendasInvierno">Remeras</h4>
+                        <ul>
+                            <li><img id="RemInvPrimera" src="img/remerablanca.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemInvSegunda" src="img/topbrillito.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemInvTercera" src="img/toprmera.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>                                        
+                        
+                    
+                    <div id="PantalonesInv"><h4 class="PrendasInvierno">Pantalones</h4>
+                        <ul>
+                            <li><img id="PanInvPrimera" src="img/pollerasola.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanInvSegunda" src="img/pollerasola.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanInvTercera" src="img/polleranegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="ZapatosInv"><h4 class="PrendasInvierno">Zapatos</h4>
+                        <ul>
+                            <li><img id="ZapInvPrimera" src="img/zapanegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapInvSegunda" src="img/zapatobota.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapInvTercera" src="img/zapablanca.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="AccesoriosInv"><h4 class="PrendasInvierno">Accesorios</h4>
+                        <ul>
+                            <li><img id="AccInvPrimera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccInvSegunda" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccInvTercera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+                                      
+                </div>
+
+                <!------------------------------- CONTENIDO DE COLECCIÓN PRIMAVERA ----------------------------------------------------->
+
+                <div><img id="Flor_primavera" src="img/flower-png.png" alt="" width="200"></div>
+
+                <h3><p id="NombPrim">Primavera</p></h3>
+                <div id="ElemPrimavera">
+                       <div id="RemerasPrim"><h4 class="PrendasPrim">Remeras</h4>
+                        <ul>
+                            <li><img id="RemPrimPrimera" src="img/remerablanca.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemPrimSegunda" src="img/topbrillito.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemPrimTercera" src="img/top.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>                                         
+                        
+                    
+                    <div id="PantalonesPrim"><h4 class="PrendasPrim">Pantalones</h4>
+                        <ul>
+                            <li><img id="PanPrimPrimera" src="img/polleranegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanPrimSegunda" src="img/jeannegro.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanPrimTercera" src="img/jeanshortcostado.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="ZapatosPrim"><h4 class="PrendasPrim">Zapatos</h4>
+                        <ul>
+                            <li><img id="ZapPrimPrimera" src="img/zapablanca2.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapPrimSegunda" src="img/zapanegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapPrimTercera" src="img/zapablanca.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div id="AccesoriosPrim"><h4 class="PrendasPrim">Accesorios</h4>
+                        <ul>
+                            <li><img id="AccPrimPrimera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccPrimSegunda" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccPrimTercera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>                
+                </div>
+
+                <!------------------------------- CONTENIDO DE COLECCIÓN VERANO ----------------------------------------------------->
+
+                <div><img id="Verano_sol" src="img/verano.png" alt="" width="200"></div>
+
+
+               <h3><p id="NombVer">Verano</p></h3>
+                <div id="ElemVerano">
+                    <div id="RemerasVer"><h4 class="PrendasVer">Remeras</h4>
+                        <ul>
+                            <li><img id="RemVerPrimera" src="img/top.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemVerSegunda" src="img/topbrillito.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="RemVerTercera" src="img/toprmera.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+                                        
+                    
+                    <div id="PantalonesVer"><h4 class="PrendasVer">Pantalones</h4>
+                        <ul>
+                            <li><img id="PanVerPrimera" src="img/jeanshortfrente.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanVerSegunda" src="img/jeannegro.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="PanVerTercera" src="img/jeandefrente.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="ZapatosVer"><h4 class="PrendasVer">Zapatos</h4>
+                        <ul>
+                            <li><img id="ZapVerPrimera" src="img/zapablanca2.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapVerSegunda" src="img/zapablanca.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="ZapVerTercera" src="img/zapanegra.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+
+
+                    <div id="AccesoriosVer"><h4 class="PrendasVer">Accesorios</h4>
+                        <ul>
+                            <li><img id="AccVerPrimera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccVerSegunda" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="AccVerTercera" src="img/protector.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>               
+                  
+                </div>
+              
+                <!------------------------------- CONTENIDO DE COLECCIÓN OUTFITS ----------------------------------------------------->
+
+                <div><img id="Outfits_imagen" src="img/tendencia.png" alt="" width="200"></div>
+
+
+                <h3><p id="NombOutfit">Outfit</p></h3>
+                <div id="ElemOutfit">
+                    <div id="OutfitClasico"><h4 class="PrendasOutfit">Clásico</h4>
+                        <h5 id="OutfitClasicoFormal" class="PrendasOutfitTipos">Formal</h5>                        
+                        <ul>
+                            <li><img id="OutfitFormalPrimera" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitFormalSegunda" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitFormalTercera" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                        <h5 id= "OutfitClasicoInformal" class="PrendasOutfitTipos">Informal</h5>
+                        <ul>
+                            <li><img id="OutfitInformalPrimera" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitInformalSegunda" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitInformalTercera" src="img/outfit.jpeg" width="200" /><p>
+                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>
+                     
+                    
+                    <div id="OutfitAesthetic"><h4 class="PrendasOutfit">Aesthetic</h4>
+                        <h5 id="OutfitTendencias" class="PrendasOutfitTipos">Tendencias</h5>
+                        <ul>                            
+                            <li><img id="OutfitTendenciaPrimera" src="img/outfit.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitTendenciaSegunda" src="img/outfit.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                            <li><img id="OutfitTendenciaTercera" src="img/outfit.jpeg" width="200" /><p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                                </p></li>
+                        </ul>
+                    </div>                                
+                  
+                </div>
+            </div>
+
+             <!------------------------------- PIE DE PÁGINA ----------------------------------------------------->
+    
+            <footer>
+                Bruno César Caruso  © Derechos Reservados
+            </footer>
+       </div>  
+
+</body>
+</html>

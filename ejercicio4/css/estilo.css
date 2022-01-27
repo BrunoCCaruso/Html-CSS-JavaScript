@@ -1,0 +1,48 @@
+body{
+    background-color: black;
+    font-family: Calibri;
+    padding: 10px 20px;
+	
+}
+
+h1 {
+	color: #FFFFFF;
+	background-color: #ffbd33;
+	padding: 10px;
+	border-radius:0 20px;
+	text-align: center;
+}
+
+
+h2 {
+	color: #FFFFFF;
+	background-color: #15226d;
+	text-align: center;
+	font-size: xx-large;
+	padding: 10px;
+	border-radius:20px 20px;
+	border-style: groove;
+	border-color: rgb(64, 107, 224);
+}
+
+h3 {
+	color: #FFFFFF;
+	background-color: #2a42c8;
+	text-align: center;
+	font-size: x-large;
+	padding: 10px;
+	border-radius:20px 20px;
+	border-style: groove;
+	border-color: rgb(64, 107, 224);
+}
+
+h4 {
+	color: #FFFFFF;
+	background-color: #2a42c8;
+	text-align: center;
+	font-size: x-large;
+	padding: 10px;
+	border-radius:20px 20px;
+	border-style: groove;
+	border-color: rgb(64, 107, 224);
+}

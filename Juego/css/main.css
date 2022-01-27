@@ -1,0 +1,289 @@
+/*///////////////////// DISEÑO GENERAL ////////////////////////////////// */
+
+*{    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    background-color: black;
+    color: whitesmoke;
+}
+
+#Titulo{
+    color: whitesmoke;
+    background-color: rgb(56, 27, 14);
+    border-radius: 50px;
+    border-style: groove;
+    padding-left: 35%;
+}
+
+/*///////////////////// DISEÑO DE LA SECCIÓN DEL REGISTRO DE USUARIO ////////////////////////////////// */
+
+#Seccion_1{
+    padding-left: 0%;  
+}
+#dialog-form{
+    background-color: rgb(167, 141, 117);
+    font-size: xx-large;
+}
+.validateTips{
+    color: rgb(126, 23, 23);
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px;
+    border-style: solid #d46969;
+    
+}
+
+.ui-widget-content{
+    background: #634545;
+    color: #fbe8d7;
+}
+
+#users{
+    color: #634545;
+    font-size: medium;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+}
+
+#users-contain{
+display: inline-table;
+vertical-align: middle;
+padding-right: 40px; 
+}
+
+
+ul{    
+    display: inline-flexbox;
+}
+
+
+/*///////////////////// DISEÑO DEL CONTADOR DE TIEMPO ////////////////////////////////// */
+
+#tiempo{
+    color: rgb(59, 31, 10);
+    background-color: rgb(238, 228, 173);
+    padding-left: 42%;
+    font-size: 40px;
+    margin: 0;
+    margin-top: 20px;
+}
+#cuentaregresiva{
+    display: flex;
+    align-items: center;
+    justify-content: center;      
+    background-color: rgb(236, 251, 186);
+    color: rgb(49, 25, 8);
+    font-size: 60px;
+    padding-left: 0%;
+    margin: 0%;
+}
+
+
+/*///////////////////// DISEÑO DEL PEDIDO DEL JEFE  ////////////////////////////////// */
+
+#pedido{
+    
+    background-color: rgb(221, 255, 129);
+    color: rgb(0, 0, 0);
+    border-radius: 50px 50px 50px 0px;
+    border-color: black;
+    border-style: groove;
+    padding: 50px;
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+#pedido:hover{
+    cursor: pointer;
+    font-size: 33px;
+}
+
+/*///////////////////// DISEÑO DEL BOTON COMENZAR ////////////////////////////////// */
+
+#comenzar {
+    width: 300px;
+    margin: 20px;
+    margin-left: 5%;
+    font-size: 50px;
+    font-family: fantasy;
+    background-color: rgb(84, 146, 23);
+    color: rgb(232, 255, 209);
+        
+}
+#comenzar:hover{
+    font-size: 55px;
+    background-color: rgb(114, 195, 32);
+    color: whitesmoke;
+    text-align: center;
+}
+
+/*///////////////////// DISEÑO DEL BOTON COMENZAR JUEGO NUEVO ////////////////////////////////// */
+
+#comenzar2{
+    font-size: 30px;
+    font-family: fantasy;
+
+
+}
+#comenzar2:hover{
+    font-size: 35px;
+    background-color: rgb(146, 23, 23);
+    color: whitesmoke;
+}
+
+/*///////////////////// DISEÑO DEL CONTENEDOR DE IMAGENES ////////////////////////////////// */
+
+#Seccion_2{
+    padding-left: 0%;
+  
+}
+
+#main{
+    margin-top: 0px;
+    padding-top: 0px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    display: contents;
+    display: flex;
+
+}
+
+#selectable {
+    margin: 50px;
+    margin-left: 5%;      
+}
+#ui-state-default1{
+    background-color: rgb(37, 100, 45);
+
+}
+#ui-state-default2{
+    background-color: rgb(190, 107, 59);
+
+}
+#ui-state-default3{
+    background-color: rgb(47, 23, 43);
+
+}
+
+#ui-state-default4{
+    background-color: rgb(37, 59, 100);
+
+}
+#ui-state-default5{
+    background-color: rgb(21, 177, 130);
+
+}
+#ui-state-default6{
+    background-color: rgb(177, 21, 34);
+
+}
+
+
+/* /////////////////   DISEÑO DE BOTONES CONTENEDORES DE LAS IMAGENES  //////////////////////////////////////// */  
+
+#uno{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;    
+}
+
+#dos{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#tres{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;    
+}
+
+#cuatro{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#cinco{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#seis{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#siete{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#ocho{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#nueve{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#diez{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+#once{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+#doce{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+#trece{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+#catorce{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+#quince{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+#dieciseis{    
+    font-size: x-large;
+    width: 76.68px;
+    height: 49.35px;
+}
+
+
+
+/*///////////////////// DISEÑO DE LA SECCIÓN DE AYUDA O SOLUCIÓN ////////////////////////////////// */ 
+
+#Seccion_3{
+    margin-top: 1%;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
